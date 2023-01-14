@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\opentelemetry-newrelic-template.props" />
+</Project>

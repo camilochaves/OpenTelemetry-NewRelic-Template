@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "e/hIeAXjOkaeaRb77sdKhUBXY6K7xvRFwbgUEdjOFHk=",
+  "Source": "opentelemetry-newrelic-template",
+  "BasePath": "_content/opentelemetry-newrelic-template",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

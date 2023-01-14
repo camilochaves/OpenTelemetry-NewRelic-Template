@@ -1,0 +1,80 @@
+extensions:
+  health_check:
+
+receivers:
+  otlp:
+    protocols:
+      grpc:
+  
+  hostmetrics:
+    collection_interval: 20s
+    scrapers:
+      cpu:
+        metrics:
+          system.cpu.utilization:
+            enabled: true
+      load:
+      memory:
+        metrics:
+          system.memory.utilization:
+            enabled: true
+      disk:
+      filesystem:
+        metrics:
+          system.filesystem.utilization:
+            enabled: true
+      network:
+      paging:
+        metrics:
+          system.paging.utilization:
+            enabled: true
+      processes:
+      process:
+
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 1000
+    spike_limit_mib: 200
+  batch:
+  cumulativetodelta:
+    include:
+      metrics:
+        - system.network.io
+        - system.disk.operations
+        - system.network.dropped
+        - system.network.packets
+        - process.cpu.time
+      match_type: strict
+  resource:
+    attributes:
+      - key: host.id
+        from_attribute: host.name
+        action: upsert
+  resourcedetection:
+    detectors: [env, system]
+
+exporters:
+  otlp:
+    endpoint: https://otlp.nr-data.net:4317
+    headers:
+      api-key: <PUT YOUR NEW RELIC API KEY HERE>
+  logging:
+    logLevel: debug
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch, resourcedetection, resource]
+      exporters: [logging, otlp]
+    metrics:
+      receivers: [hostmetrics]
+      processors: [batch, resourcedetection, resource, cumulativetodelta]
+      exporters: [otlp]
+    logs:
+      receivers: [otlp]
+      processors: [batch, resourcedetection, resource]
+      exporters: [logging, otlp]
+
+  extensions: [health_check]
