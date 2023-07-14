@@ -1,36 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cchaves\\Dev\\Transformation\\opentelemetry-newrelic-template\\opentelemetry-newrelic-template.csproj": {}
+    "/home/OpenTelemetry-NewRelic-Template/opentelemetry-newrelic-template.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cchaves\\Dev\\Transformation\\opentelemetry-newrelic-template\\opentelemetry-newrelic-template.csproj": {
+    "/home/OpenTelemetry-NewRelic-Template/opentelemetry-newrelic-template.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cchaves\\Dev\\Transformation\\opentelemetry-newrelic-template\\opentelemetry-newrelic-template.csproj",
+        "projectUniqueName": "/home/OpenTelemetry-NewRelic-Template/opentelemetry-newrelic-template.csproj",
         "projectName": "opentelemetry-newrelic-template",
-        "projectPath": "C:\\Users\\cchaves\\Dev\\Transformation\\opentelemetry-newrelic-template\\opentelemetry-newrelic-template.csproj",
-        "packagesPath": "C:\\Users\\cchaves\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cchaves\\Dev\\Transformation\\opentelemetry-newrelic-template\\obj\\",
+        "projectPath": "/home/OpenTelemetry-NewRelic-Template/opentelemetry-newrelic-template.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/home/OpenTelemetry-NewRelic-Template/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\cchaves\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "/root/.dotnet/sdk/7.0.306/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://nuget.pkg.github.com/restaurant-technology-org/index.json": {},
-          "https://repo.rdisoftware.com/artifactory/api/nuget/rdi-nuget-virtual": {}
+          "https://repo.rdisoftware.com/artifactory/api/nuget/v3/rdi-nuget-virtual": {}
         },
         "frameworks": {
           "net7.0": {
@@ -108,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/root/.dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
         }
       }
     }

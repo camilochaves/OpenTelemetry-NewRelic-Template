@@ -58,11 +58,16 @@ exporters:
   otlp:
     endpoint: https://otlp.nr-data.net:4317
     headers:
-      api-key: <PUT YOUR NEW RELIC API KEY HERE>
+      api-key: yourOtelAPIKeyHere
+    sending_queue:
+      enabled: false
+    retry_on_failure:
+      enabled: true
   logging:
-    logLevel: debug
+    
 
 service:
+
   pipelines:
     traces:
       receivers: [otlp]
@@ -78,3 +83,17 @@ service:
       exporters: [logging, otlp]
 
   extensions: [health_check]
+
+  telemetry:
+    logs:
+      level: debug
+      initial_fields:
+        service: my-instance
+      development: true
+      encoding: json
+      disable_caller: true
+      disable_stacktrace: true
+      sampling:
+        initial: 10
+        thereafter: 5
+
