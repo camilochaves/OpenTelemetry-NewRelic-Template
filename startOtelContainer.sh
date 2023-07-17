@@ -14,6 +14,7 @@ docker run  -d -it \
             --hostname OtelContainer_HostMetrics \
             --network otel_net \
             -v $(pwd)/otel_config.yaml:/app/otel_config.yaml \
+            -v ./logs:/logs \
             otel/opentelemetry-collector-contrib:latest --config /app/otel_config.yaml
 
 docker ps -a

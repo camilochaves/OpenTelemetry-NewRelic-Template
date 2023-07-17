@@ -31,6 +31,13 @@ receivers:
       processes:
       process:
 
+  filelog:
+    include: [ ./logs/*.log ]
+    start_at: beginning
+    operators:
+    - type: regex_parser
+      regex: '^(?P<time>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) (?P<sev>[A-Z]*) (?P<msg>.*)$'
+
 processors:
   memory_limiter:
     check_interval: 1s
@@ -58,7 +65,7 @@ exporters:
   otlp:
     endpoint: https://otlp.nr-data.net:4317
     headers:
-      api-key: yourOtelAPIKeyHere
+      api-key: 5d67e5362af64c974c3cec617c1772e0FFFFNRAL
     sending_queue:
       enabled: false
     retry_on_failure:
@@ -78,7 +85,7 @@ service:
       processors: [batch, resourcedetection, resource, cumulativetodelta]
       exporters: [otlp]
     logs:
-      receivers: [otlp]
+      receivers: [filelog, otlp]
       processors: [batch, resourcedetection, resource]
       exporters: [logging, otlp]
 
@@ -92,7 +99,7 @@ service:
       development: true
       encoding: json
       disable_caller: true
-      disable_stacktrace: true
+      disable_stacktrace: false
       sampling:
         initial: 10
         thereafter: 5
